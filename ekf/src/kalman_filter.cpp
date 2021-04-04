@@ -77,14 +77,19 @@ void filter(VectorXd &x, MatrixXd &P) {
   {
     VectorXd z = measurements[n];		
     // KF Measurement update step
-	VectorXd y = z - H * x;                         // error
-    MatrixXd S = H * P * H.transpose() + R;         // measurement uncertainty
-	MatrixXd K = P * H.transpose() * S.inverse();   // Kalman gain
+	  VectorXd y = z - H * x;       // error
+    MatrixXd Ht = H.transpose();
+    MatrixXd S = H * P * Ht + R;  // measurement uncertainty
+    MatrixXd Si = S.inverse();
+	  MatrixXd K = P * Ht * Si;     // Kalman gain
+
     // new state
-	x += K * y;
+	  x += K * y;
     P = (I - K * H) * P;
+    
     // KF Prediction step
-	x = F * x + u;
+	  x = F * x + u;
+    MatrixXd Ft = F.transpose();
     P = F * P * F.transpose() + Q;
     
     cout << "x=" << endl <<  x << endl;
