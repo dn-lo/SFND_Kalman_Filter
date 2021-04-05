@@ -5,8 +5,9 @@ add_definitions(-std=c++11)
 set(CXX_FLAGS "-Wall")
 set(CMAKE_CXX_FLAGS, "${CXX_FLAGS}")
 
-project(ekf)
+project(basic_kf)
 
 # Executable for kalman filter exercise
+include_directories(include ${CMAKE_CURRENT_SOURCE_DIR}/../Eigen)
 add_executable (kalman_filter kalman_filter.cpp)
 target_link_libraries (kalman_filter)

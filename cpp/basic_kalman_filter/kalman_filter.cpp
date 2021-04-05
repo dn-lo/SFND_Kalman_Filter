@@ -5,7 +5,7 @@
 
 #include <iostream>
 #include <vector>
-#include "../Eigen/Dense"
+#include "Dense"
 
 using std::cout;
 using std::endl;
