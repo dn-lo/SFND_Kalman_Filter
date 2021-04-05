@@ -5,7 +5,7 @@ add_definitions(-std=c++11)
 set(CXX_FLAGS "-Wall")
 set(CMAKE_CXX_FLAGS, "${CXX_FLAGS}")
 
-project(ekf)
+project(lidar)
 
 # Executable for lidar tracking exercise
 include_directories(include ${CMAKE_CURRENT_SOURCE_DIR}/../Eigen)
