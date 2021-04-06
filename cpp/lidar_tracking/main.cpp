@@ -23,7 +23,7 @@ int main() {
   vector<MeasurementPackage> measurement_pack_list;
 
   // hardcoded input file with laser and radar measurements
-  string in_file_name_ = "obj_pose-laser-radar-synthetic-input.txt";
+  string in_file_name_ = "../EKF_DATA/obj_pose-laser-radar-synthetic-input.txt";
   ifstream in_file(in_file_name_.c_str(), ifstream::in);
 
   if (!in_file.is_open()) {
