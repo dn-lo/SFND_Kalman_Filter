@@ -49,9 +49,14 @@ void UKF::GenerateSigmaPoints(MatrixXd* Xsig_out) {
   // calculate square root of P
   MatrixXd A = P.llt().matrixL();
 
-  // calculate sigma points ...
-
-  // set sigma points as columns of matrix Xsig
+  // set sigma mean point
+  Xsig.col(0) = x;
+  // set sigma points to the right and left of mean
+  for (unsigned int i=0; i<n_x; i++)
+  {
+      Xsig.col(i+1) = x + sqrt(lambda + n_x)*A.col(i); // right
+      Xsig.col(i+n_x+1) = x - sqrt(lambda + n_x)*A.col(i); // left
+  }
 
   // print result
   // std::cout << "Xsig = " << std::endl << Xsig << std::endl;
