@@ -55,7 +55,7 @@ void UKF::GenerateSigmaPoints(MatrixXd* Xsig_out) {
   for (unsigned int i=0; i<n_x; i++)
   {
       Xsig.col(i+1)     = x + sqrt(lambda + n_x) * A.col(i); // right
-      Xsig.col(i+n_x+1) = x - sqrt(lambda + n_x)* A.col(i); // left
+      Xsig.col(i+n_x+1) = x - sqrt(lambda + n_x) * A.col(i); // left
   }
 
   // print result
