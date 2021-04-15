@@ -30,5 +30,10 @@ int main() {
   MatrixXd P_pred = MatrixXd(5, 5);
   ukf.PredictMeanAndCovariance(&x_pred, &P_pred);
 
+  // Project prediction into measurement space
+  VectorXd z_out = VectorXd(3);
+  MatrixXd S_out = MatrixXd(3, 3);
+  ukf.PredictRadarMeasurement(&z_out, &S_out);
+  
   return 0;
 }
