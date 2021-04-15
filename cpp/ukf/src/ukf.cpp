@@ -139,7 +139,8 @@ void UKF::AugmentedSigmaPoints(MatrixXd* Xsig_out)
   *Xsig_out = Xsig_aug;
 }
 
-void UKF::SigmaPointPrediction(MatrixXd* Xsig_out) {
+void UKF::SigmaPointPrediction(MatrixXd* Xsig_out) 
+{
 
   // set state dimension
   int n_x = 5;
